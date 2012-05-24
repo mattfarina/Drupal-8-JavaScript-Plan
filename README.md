@@ -80,6 +80,9 @@ Some things are not currently in the plan but could be. They are not in the plan
 2. A decrease in DX for a core developer audience without a mitigation plan.
 3. We still need more data/justification for a change.
 
+### Replace Drupal.theme() with template system
+Since Drupal.theme came to life the JS communities have really jumped into dealing with the templating problem with tools like [Mustache](http://mustache.github.com/) and [Handlebars](http://handlebarsjs.com/). We should replace the core Drupal system with a 3rd party system that rocks. This task is not included in the plan in the interest of time which there is not a lot of and I have not seen someone champion this in core.
+
 ### Using A Full JavaScript Loader (e.g. require.js)
 Using loaders is rather popular in the JavaScript community. When you are building the entire UI in JavaScript and want to call back for any functionality loading that on the fly is great. But, Drupal doesn't generate pages this way, there is debate around if this is a good idea, not all the JavaScript devs are for it, there are DX issues for contrib, and this is not a small task. These are all problems that should be solved before moving forward. Let me go into detail on some of problems facing this:
 
@@ -87,7 +90,7 @@ Using loaders is rather popular in the JavaScript community. When you are buildi
 2. Part of the reason for script loaders is performance. But, [according to the Google Pagespeed team we shouldn't use a loader for core scripts needed for the paint](http://pagespeed-velocity2011.appspot.com/#17). That means we need to segment what should be loaded by a script loader and what's not loaded. This would be different for different pages. This is a rather complex problem.
 3. Making this change will take time. There is a small window to get some long overdue low barrier to entry changes in.
 
-_Note, script dependency handling already happens through hook_library(). This may not be optimal or some form of standard. But, it works, developers with Drupal 7 are familiar with it, and until we have a better approach that deals with all the issues it does provide a mechanism for dependency handling._
+*Note, script dependency handling already happens through hook_library(). This may not be optimal or some form of standard. But, it works, developers with Drupal 7 are familiar with it, and until we have a better approach that deals with all the issues it does provide a mechanism for dependency handling.*
 
 ## Todo
 
